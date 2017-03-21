@@ -1,6 +1,3 @@
-# sgx-timing
-First practical showcase for leaking secret encryption keys from a secure SGX enclave.
-
 # Cache-timing Attacks on Intel SGX
 
 We present an access-driven cache-timing attack on AES
