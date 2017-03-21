@@ -1,0 +1,20 @@
+enclave {
+	
+	trusted {
+		include "sgx_tseal.h"
+		include "sgx_trts.h"
+		public void createSecret( void );
+		public void getSecretSize( void );
+		public void storeSecret( [user_check] sgx_sealed_data_t *storage, uint32_t sealed_secret_size );
+		public void loadSecret( [user_check] sgx_sealed_data_t *storage);
+		public void encrypt_step( [user_check] unsigned char *input);
+		public void encrypt_final( [user_check] unsigned char *output );
+		public void encrypt_loop( [user_check] unsigned char *input, [user_check] unsigned char *output, [user_check] int *flag, [user_check] int *flag_out );
+	};
+	
+	untrusted {
+		include "aes.h"
+		include "sgx_tseal.h"
+		include "sgx_trts.h"
+	};
+};
